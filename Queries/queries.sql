@@ -2,6 +2,14 @@ queries.sql
 
 -- DATABASE CODE
 
+-- Departments = d
+-- Employees = e
+-- Dept_Manager = dm
+-- Dept_Employee = de
+-- Salaries = s
+-- Titles = t
+-- Retirement_Info = ri
+
 -- Creating tables for PH-EmployeeDB
 CREATE TABLE departments (
 	dept_no VARCHAR(4) NOT NULL,
@@ -92,3 +100,48 @@ WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
 
 SELECT * FROM retirement_info;
+
+-- Create new table for retiring employees inc the emp_no
+DROP TABLE retirement_info;
+
+SELECT emp_no, first_name, last_name
+INTO retirement_info
+FROM employees
+WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31') 
+AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
+
+SELECT * FROM retirement_info;
+
+-- Use inner join for Departments and Dept_Manager tables
+SELECT d.dept_name,
+	dm.emp_no,
+	dm.from_date,
+	dm.to_date
+FROM departments AS d
+INNER JOIN dept_manager AS dm
+ON d.dept_no = dm.dept_no;
+
+-- Create a new table to hold joined data for currently elligible for retirement
+SELECT ri.emp_no,
+	ri.first_name,
+	ri.last_name,
+	de.to_date
+INTO current_emp
+FROM retirement_info AS ri
+LEFT JOIN dept_emp AS de
+ON ri.emp_no = de.emp_no
+WHERE de.to_date = ('9999-01-01');
+
+SELECT * FROM current_emp;
+
+-- Join current_emp and dept_emp tables to get employee count by dept number.
+-- Create a table from joined data
+SELECT COUNT(ce.emp_no), de.dept_no
+INTO current_dept_count
+FROM current_emp AS ce
+LEFT JOIN dept_emp AS de
+ON ce.emp_no = de.emp_no
+GROUP BY de.dept_no
+ORDER BY de.dept_no;
+
+SELECT * FROM current_dept_count;
