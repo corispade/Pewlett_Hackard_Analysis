@@ -1,16 +1,3 @@
-queries.sql
-
--- DATABASE CODE
-
--- Departments = d
--- Employees = e
--- Dept_Manager = dm
--- Dept_Employee = de
--- Salaries = s
--- Titles = t
--- Retirement_Info = ri
--- Employee-Info = ei
-
 -- Creating tables for PH-EmployeeDB
 CREATE TABLE departments (
 	dept_no VARCHAR(4) NOT NULL,
@@ -122,6 +109,7 @@ FROM departments AS d
 INNER JOIN dept_manager AS dm
 ON d.dept_no = dm.dept_no;
 
+-- Use left join on retirement_info and dept_emp tables.
 -- Create a new table to hold joined data for currently elligible for retirement
 SELECT ri.emp_no,
 	ri.first_name,
@@ -162,7 +150,7 @@ SELECT * FROM emp_info;
 
 DROP TABLE emp_info;
 
--- 2. Join new table to the salaries table
+-- 2. Join employee to the salaries table to create emp_info table
 SELECT e.emp_no, 
 	e.first_name,
 	e.last_name,
@@ -209,3 +197,34 @@ INNER JOIN dept_emp as de
 	ON (ce.emp_no = de.emp_no)
 INNER JOIN departments as d
 	ON (de.dept_no = d.dept_no);
+	
+-- Find department retirees for sales team
+SELECT ce.emp_no,
+	ce.first_name,
+	ce.last_name,
+	d.dept_name
+INTO sales_info
+FROM current_emp as ce
+INNER JOIN dept_emp as de
+	ON (ce.emp_no = de.emp_no)
+INNER JOIN departments as d
+	ON (de.dept_no = d.dept_no)
+WHERE dept_name = 'Sales';
+
+SELECT * FROM sales_info;
+
+-- Find department retirees for sales and development team
+SELECT ce.emp_no,
+	ce.first_name,
+	ce.last_name,
+	d.dept_name
+INTO dev_sales_info
+FROM current_emp as ce
+INNER JOIN dept_emp as de
+	ON (ce.emp_no = de.emp_no)
+INNER JOIN departments as d
+	ON (de.dept_no = d.dept_no)
+WHERE dept_name IN ('Sales', 'Development')
+ORDER BY dept_name;
+
+SELECT * FROM dev_sales_info;
