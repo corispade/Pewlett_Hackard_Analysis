@@ -58,7 +58,7 @@ FROM titles;
 
 SELECT * FROM titles;
 
--- Create new table joining employees and dept_emp
+-- Find all employees eligible for mentorship and create new table
 SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date,
 	de.from_date, de.to_date,
 	ti.title
