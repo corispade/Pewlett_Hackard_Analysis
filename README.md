@@ -39,9 +39,7 @@ Language: SQL
 
 # Results:
 
-There is a bulleted list with four major points from the two analysis deliverables. (6 pt)
-
-* Based on the Unique Titles table, there are 90,398 employees retiring
+* Based on the Unique Titles table, there will be 90,398 employees retiring
 
 * Based on the Retiring Titles table, the following positions will be open after employees retire:
 
@@ -61,3 +59,4 @@ Are there enough qualified, retirement-ready employees in the departments to men
 Additional queries that may provide more insight into the upcoming "silver tsunami":
 1. Create a table to find who will be elligible for promotion in the next few years take the strain off hiring new people for all of the open roles.
 2. Filter retirement information by department to begin high level planning for department planning, team structure and hiring process planning.
+3. Expand the range of qualified employees eligible to participate in the mentorship program to create more mentorship opportunities. 

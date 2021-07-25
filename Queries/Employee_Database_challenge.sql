@@ -73,3 +73,32 @@ WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
 ORDER BY e.emp_no;
 
 SELECT * FROM mentorship_eligibility;
+
+-- DELIVERABLE 3
+
+-- Find department retirees based on department
+SELECT COUNT(ut.emp_no) as count_emp, d.dept_name
+FROM dept_emp as de
+INNER JOIN departments as d
+	ON (de.dept_no = d.dept_no)
+INNER JOIN unique_titles as ut
+	ON (de.emp_no = ut.emp_no)
+GROUP BY dept_name
+ORDER BY count_emp DESC;
+
+-- Expand employee eligibility for mentorship program by one year
+SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date,
+	de.from_date, de.to_date,
+	ti.title
+INTO practice_table
+FROM employees as e
+INNER JOIN dept_emp as de
+	ON e.emp_no = de.emp_no
+INNER JOIN titles as ti
+	ON de.emp_no = ti.emp_no
+WHERE (e.birth_date BETWEEN '1964-01-01' AND '1965-12-31') 
+	AND (ti.to_date = '9999-01-01')
+ORDER BY e.emp_no;
+
+SELECT COUNT(*) FROM practice_table;
+
