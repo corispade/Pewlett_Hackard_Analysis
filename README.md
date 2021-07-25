@@ -47,13 +47,17 @@ There is a bulleted list with four major points from the two analysis deliverabl
 
 ![picture](https://github.com/corispade/Pewlett_Hackard_Analysis/blob/main/count_retiring_titles.png)
 
+* Based on the above chart, 64% of the open positions will be in "Senior" positions. 
+
 * Based on the Mentorship Eligibility table, there are 1,549 employees eligible for mentorship
 
 # Summary:
-Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
-
 How many roles will need to be filled as the "silver tsunami" begins to make an impact?
-90,398 roles will need to be filled as the "silver tsunami" begins to make an impact. 
+  * 90,398 roles will need to be filled as employees begin to retire. 
 
 Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
-There are 
+* No, there are only 1,549 qualified employees eligible to participate in the mentorship program. 
+
+Additional queries that may provide more insight into the upcoming "silver tsunami":
+1. Create a table to find who will be elligible for promotion in the next few years take the strain off hiring new people for all of the open roles.
+2. Filter retirement information by department to begin high level planning for department planning, team structure and hiring process planning.
