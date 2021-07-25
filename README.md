@@ -57,9 +57,8 @@ Are there enough qualified, retirement-ready employees in the departments to men
 * No, there are only 1,549 qualified employees eligible to participate in the mentorship program. 
 
 Additional queries that may provide more insight into the upcoming "silver tsunami":
-1. Create a table to find who will be elligible for promotion in the next few years take the strain off hiring new people for all of the open roles.
-2. Filter retirement information by department to begin high level planning for department planning, team structure and hiring process planning. See example image below:
+1. Filter the retirement information by department to begin high level planning for department goals, team structure and hiring process. This could be used to find team members eligible for promotion in the next few years to reduce the strain of hiring a new employee in every role. See example image below:
 
 ![picture](https://github.com/corispade/Pewlett_Hackard_Analysis/blob/main/count_retiring_dept.png)
 
-3. Expand the range of qualified employees eligible to participate in the mentorship program to create more mentorship opportunities. By just expanding one year to the mentorship eligibility, we are increasing to 19,905 qualified employees eligible to participate in the mentorship program. 
+2. Expand the range of qualified employees eligible to participate in the mentorship program to create more mentorship opportunities. By just expanding one year (current employees who were born between January 1, 1964 and December 31, 1965) to the mentorship eligibility, we are increasing to 19,905 qualified employees eligible to participate in the mentorship program.
