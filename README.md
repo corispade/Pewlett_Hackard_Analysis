@@ -39,6 +39,21 @@ Language: SQL
 
 # Results:
 
+There is a bulleted list with four major points from the two analysis deliverables. (6 pt)
 
+* Based on the Unique Titles table, there are 90,398 employees retiring
+
+* Based on the Retiring Titles table, the following positions will be open after employees retire:
+
+![picture](https://github.com/corispade/Pewlett_Hackard_Analysis/blob/main/count_retiring_titles.png)
+
+* Based on the Mentorship Eligibility table, there are 1,549 employees eligible for mentorship
 
 # Summary:
+Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
+
+How many roles will need to be filled as the "silver tsunami" begins to make an impact?
+90,398 roles will need to be filled as the "silver tsunami" begins to make an impact. 
+
+Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+There are 
